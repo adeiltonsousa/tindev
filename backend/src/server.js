@@ -6,8 +6,11 @@ const routes = require('./routes');
 const server = express();
 
 mongoose.connect('mongodb+srv://adeilton:iltinho25@tindev-kuneg.mongodb.net/tindevdb?retryWrites=true&w=majority', {
-  useNewUrlParser: true
-});
+  useUnifiedTopology: true
+}, (err, res) => {
+  if (err) throw err;  
+  console.log('Database online');
+  });
 
 server.use(express.json());
 server.use(routes);
