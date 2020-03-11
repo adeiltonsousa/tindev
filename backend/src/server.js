@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const routes = require('./routes');
 
@@ -12,6 +13,7 @@ mongoose.connect('mongodb+srv://adeilton:iltinho25@tindev-kuneg.mongodb.net/tind
   console.log('Database online');
   });
 
+server.use(cors());
 server.use(express.json());
 server.use(routes);
 
